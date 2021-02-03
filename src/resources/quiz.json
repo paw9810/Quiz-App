@@ -1,0 +1,56 @@
+[
+    {
+        "id":1,
+        "name":"Quiz 1",
+        "questions":[
+            {
+                "id":1,
+                "question":"Jaki jest kolor kurtki najmana?",
+                "answers":[
+                    {
+                        "id":1,
+                        "answer":"niebieska",
+                        "correct":true
+                    },
+                    {
+                        "id":2,
+                        "answer":"zielona",
+                        "correct":false
+                    },
+                    {
+                        "id":3,
+                        "answer":"czerwona",
+                        "correct":false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id":2,
+        "name":"Quiz 2",
+        "questions":[
+            {
+                "id":1,
+                "question":"Jaki jest kolor kurtki najmana?",
+                "answers":[
+                    {
+                        "id":1,
+                        "answer":"niebieska",
+                        "correct":true
+                    },
+                    {
+                        "id":2,
+                        "answer":"zielona",
+                        "correct":false
+                    },
+                    {
+                        "id":3,
+                        "answer":"czerwona",
+                        "correct":false
+                    }
+                ]
+            }
+        ]
+    }
+]
