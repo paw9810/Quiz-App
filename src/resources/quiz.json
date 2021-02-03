@@ -9,17 +9,44 @@
                 "answers":[
                     {
                         "id":1,
+                        "name": "checkedA",
                         "answer":"niebieska",
                         "correct":true
                     },
                     {
                         "id":2,
+                        "name": "checkedB",
                         "answer":"zielona",
                         "correct":false
                     },
                     {
                         "id":3,
+                        "name": "checkedC",
                         "answer":"czerwona",
+                        "correct":false
+                    }
+                ]
+            },
+            {
+                "id":2,
+                "question":"Kiedy kowal pali?",
+                "answers":[
+                    {
+                        "id":1,
+                        "name": "checkedA",
+                        "answer":"Jak sie pociera",
+                        "correct":true
+                    },
+                    {
+                        "id":2,
+                        "name": "checkedB",
+                        "answer":"Jak sie nie pociera",
+                        "correct":false
+                    },
+                    {
+                        "id":3,
+                        "name": "checkedC",
+                        "answer":"Zawsze",
                         "correct":false
                     }
                 ]
@@ -36,16 +63,19 @@
                 "answers":[
                     {
                         "id":1,
+                        "name": "checkedA",
                         "answer":"niebieska",
                         "correct":true
                     },
                     {
                         "id":2,
+                        "name": "checkedB",
                         "answer":"zielona",
                         "correct":false
                     },
                     {
                         "id":3,
+                        "name": "checkedC",
                         "answer":"czerwona",
                         "correct":false
                     }
