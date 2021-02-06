@@ -30,7 +30,6 @@ const Quiz = ({ quizData, quizId }) => {
     checkedC: false
   })
   const [answers, setAnswers] = useState([])
-  const [temp, setTemp] = useState()
   const classes = useStyles();
   
 
@@ -58,16 +57,16 @@ const Quiz = ({ quizData, quizId }) => {
       setPoints((points) => points+1)
     }
     setCurrentQuestion((currentQuestion) => currentQuestion+1)
-    if(answers.length >= currentQuestion+1) {
+    if(answers.length > currentQuestion+1) {
       setAnswers((answers) => answers.map((answer, index) => {
         if(index === currentQuestion) {
           return checkboxes
         } return answer
       }))
       setCheckboxes((checkboxes) => ({
-        checkedA: temp.checkedA,
-        checkedB: temp.checkedB,
-        checkedC: temp.checkedC
+        checkedA: (answers[currentQuestion+1].checkedA),
+        checkedB: (answers[currentQuestion+1].checkedB),
+        checkedC: (answers[currentQuestion+1].checkedC)
       }))
     } else {
       setAnswers((answers) => [...answers, checkboxes])
@@ -84,7 +83,6 @@ const Quiz = ({ quizData, quizId }) => {
     if(isExactAnswerCorrect(currentQuestion-1)) {
       setPoints((points) => points-1)
     }
-    setTemp(checkboxes)
     setCurrentQuestion((currentQuestion) => currentQuestion-1)
     //setAnswers((answers) => answers.filter((answer, index) => index !== answers.length-1))
     setCheckboxes((checkboxes) => ({
@@ -92,6 +90,16 @@ const Quiz = ({ quizData, quizId }) => {
       checkedB: (answers[currentQuestion-1].checkedB),
       checkedC: (answers[currentQuestion-1].checkedC)
     }))
+
+    if(answers.length < currentQuestion+1) {
+      setAnswers((answers) => [...answers, checkboxes])
+    }
+    setAnswers((answers) => answers.map((answer, index) => {
+      if(index === currentQuestion) {
+        return checkboxes
+      } return answer
+    }))
+    
     
   }
 
