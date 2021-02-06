@@ -50,6 +50,54 @@
                         "correct":false
                     }
                 ]
+            },
+            {
+                "id":3,
+                "question":"Jaki jest najlepszy serial?",
+                "answers":[
+                    {
+                        "id":1,
+                        "name": "checkedA",
+                        "answer":"Breaking Bad",
+                        "correct":false
+                    },
+                    {
+                        "id":2,
+                        "name": "checkedB",
+                        "answer":"Gra o tron",
+                        "correct":true
+                    },
+                    {
+                        "id":3,
+                        "name": "checkedC",
+                        "answer":"odpowiedz C",
+                        "correct":false
+                    }
+                ]
+            },
+            {
+                "id":4,
+                "question":"Kto jest najwiekszym koxem?",
+                "answers":[
+                    {
+                        "id":1,
+                        "name": "checkedA",
+                        "answer":"Remisko",
+                        "correct":false
+                    },
+                    {
+                        "id":2,
+                        "name": "checkedB",
+                        "answer":"Panek",
+                        "correct":true
+                    },
+                    {
+                        "id":3,
+                        "name": "checkedC",
+                        "answer":"Sierzant",
+                        "correct":false
+                    }
+                ]
             }
         ]
     },

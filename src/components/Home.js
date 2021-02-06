@@ -39,22 +39,21 @@ const Home = ({ quizData }) => {
                     (
                         
                         quizData.map((quiz) => (
-                        <>
-                        <ListItem button divider className={classes.navParent}>  
-                            <Link 
-                                to='/Quiz' 
-                                key={quiz.id}
-                                onClick={() => setQuizId(quiz.id)}
-                                className={classes.navLinks}
-                                style={{textDecoration: 'none'}}
-                            >
-                                <Typography align='center' color='primary'>
-                                    {quiz.name}
-                                </Typography>
-                            </Link>
-                        </ListItem>
+                        <React.Fragment key={quiz.id}>
+                            <ListItem button divider className={classes.navParent}>  
+                                <Link 
+                                    to='/Quiz' 
+                                    onClick={() => setQuizId(quiz.id)}
+                                    className={classes.navLinks}
+                                    style={{textDecoration: 'none'}}
+                                >
+                                    <Typography align='center' color='primary'>
+                                        {quiz.name}
+                                    </Typography>
+                                </Link>
+                            </ListItem>
                         
-                        </>
+                        </React.Fragment>
                         ))
                     )
                 }
