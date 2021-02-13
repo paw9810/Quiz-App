@@ -5,6 +5,7 @@
         "questions":[
             {
                 "id":1,
+                "picture": "zdj1.png",
                 "question":"Jaki jest kolor kurtki najmana?",
                 "answers":[
                     {
@@ -29,6 +30,7 @@
             },
             {
                 "id":2,
+                "picture": "",
                 "question":"Kiedy kowal pali?",
                 "answers":[
                     {
@@ -53,6 +55,7 @@
             },
             {
                 "id":3,
+                "picture": "",
                 "question":"Jaki jest najlepszy serial?",
                 "answers":[
                     {
@@ -77,6 +80,7 @@
             },
             {
                 "id":4,
+                "picture": "",
                 "question":"Kto jest najwiekszym koxem?",
                 "answers":[
                     {
@@ -107,6 +111,7 @@
         "questions":[
             {
                 "id":1,
+                "picture": "",
                 "question":"Jaki jest kolor kurtki najmana?",
                 "answers":[
                     {

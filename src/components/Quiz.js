@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Link, Route, useRouteMatch } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import { useLocation } from 'react-router-dom'
@@ -20,7 +20,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    paddingBottom: 40
+  },
+  img: {
+    maxHeight: 200
   }
 }));
 
@@ -37,8 +41,8 @@ const Quiz = ({ quizData, quizId }) => {
   const classes = useStyles();
   const location = useLocation()
   let { path, url } = useRouteMatch();
+  const requestImageFile = require.context('../resources', true)
   
-
   const handleChange = (e) => {
     setCheckboxes({ ...checkboxes, [e.target.name]: e.target.checked })
   }
@@ -130,7 +134,9 @@ const Quiz = ({ quizData, quizId }) => {
     <div className={classes.root}>
       <Typography className={classes.quizTitle} align='center' component='h3'>Pytanie nr {currentQuestion+1}:</Typography>
       <Typography>{quiz.questions[currentQuestion].question}</Typography>
-
+      {quiz.questions[currentQuestion].picture.length !== 0 && (
+        <img className={classes.img} src={`${process.env.PUBLIC_URL}/img/${quiz.questions[currentQuestion].picture}`} alt='zdj'/>
+      )}
       <FormGroup>
         {quiz.questions[currentQuestion].answers.map((answer) => (
           <FormControlLabel
@@ -154,9 +160,7 @@ const Quiz = ({ quizData, quizId }) => {
           <Button onClick={handleNextQuestion}>Następne</Button>
         }
         {quiz.questions.length === currentQuestion+1 && 
-          <Link to={`${url}/Summary`} style={{textDecoration: 'none'}}>
-            <Button onClick={handleEnd}>Koniec</Button>
-          </Link>
+          <Button onClick={handleEnd} variant='contained' color='secondary' to={`${url}/Summary`} component={Link}>Koniec</Button>
         }
       </ButtonGroup>
 
