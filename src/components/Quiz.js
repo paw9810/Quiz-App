@@ -1,12 +1,16 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import { Link, Route, useRouteMatch } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
+import { useLocation } from 'react-router-dom'
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import Summary from './Summary'
+
 
 const useStyles = makeStyles((theme) => ({
   quizTitle: {
@@ -31,6 +35,8 @@ const Quiz = ({ quizData, quizId }) => {
   })
   const [answers, setAnswers] = useState([])
   const classes = useStyles();
+  const location = useLocation()
+  let { path, url } = useRouteMatch();
   
 
   const handleChange = (e) => {
@@ -107,10 +113,20 @@ const Quiz = ({ quizData, quizId }) => {
     if(isCurrentAnswerCorrect()) {
       setPoints((points) => points+1)
     }
-    setAnswers((answers) => [...answers, checkboxes])
+    if(answers.length > currentQuestion+1) {
+      setAnswers((answers) => answers.map((answer, index) => {
+        if(index === currentQuestion) {
+          return checkboxes
+        } return answer
+      }))
+    } else {
+      setAnswers((answers) => [...answers, checkboxes])
+    }
   }
 
   return (
+    <>
+    {location.pathname === '/Quiz' && (
     <div className={classes.root}>
       <Typography className={classes.quizTitle} align='center' component='h3'>Pytanie nr {currentQuestion+1}:</Typography>
       <Typography>{quiz.questions[currentQuestion].question}</Typography>
@@ -138,12 +154,18 @@ const Quiz = ({ quizData, quizId }) => {
           <Button onClick={handleNextQuestion}>Następne</Button>
         }
         {quiz.questions.length === currentQuestion+1 && 
-          <Button onClick={handleEnd}>Koniec</Button>
+          <Link to={`${url}/Summary`} style={{textDecoration: 'none'}}>
+            <Button onClick={handleEnd}>Koniec</Button>
+          </Link>
         }
-        
-        
       </ButtonGroup>
-    </div>
+
+      
+    </div> )}
+    <Route path={`${path}/Summary`}>
+        <Summary score={points}/>
+    </Route>
+    </>
   )
 }
 

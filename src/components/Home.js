@@ -29,13 +29,13 @@ const Home = ({ quizData }) => {
 
     return (
         <div>
-                {location.pathname !== '/Quiz' &&
+                {(location.pathname === '/Home' || location.pathname === '/')&&
                 (<Typography 
                     className={classes.homeTitle} 
                     align='center' 
                     component='h2'>Wybierz Quiz</Typography>
                 )}
-                {location.pathname !== '/Quiz' &&
+                {(location.pathname === '/Home' || location.pathname === '/')&&
                     (
                         
                         quizData.map((quiz) => (
@@ -57,7 +57,7 @@ const Home = ({ quizData }) => {
                         ))
                     )
                 }
-           
+            
             <Route path='/Quiz'><Quiz quizId={quizId} quizData={quizData}/></Route>
         </div>
         
