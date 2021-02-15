@@ -1,54 +1,54 @@
 [
     {
         "id":1,
-        "name":"Quiz 1",
+        "name":"Quiz o językach",
         "questions":[
             {
                 "id":1,
-                "picture": "zdj1.png",
-                "question":"Jaki jest kolor kurtki najmana?",
+                "picture": "",
+                "question":"Który z języków nie jest językiem programowania?",
                 "answers":[
                     {
                         "id":1,
                         "name": "checkedA",
-                        "answer":"niebieska",
-                        "correct":true
+                        "answer":"Java",
+                        "correct":false
                     },
                     {
                         "id":2,
                         "name": "checkedB",
-                        "answer":"zielona",
-                        "correct":false
+                        "answer":"HTML",
+                        "correct":true
                     },
                     {
                         "id":3,
                         "name": "checkedC",
-                        "answer":"czerwona",
+                        "answer":"PHP",
                         "correct":false
                     }
                 ]
             },
             {
                 "id":2,
-                "picture": "",
-                "question":"Kiedy kowal pali?",
+                "picture": "zdj2.png",
+                "question":"Jaki język posiada takie logo?",
                 "answers":[
                     {
                         "id":1,
                         "name": "checkedA",
-                        "answer":"Jak sie pociera",
+                        "answer":"Java",
                         "correct":true
                     },
                     {
                         "id":2,
                         "name": "checkedB",
-                        "answer":"Jak sie nie pociera",
+                        "answer":"Javascript",
                         "correct":false
                     },
                     {
                         "id":3,
                         "name": "checkedC",
-                        "answer":"Zawsze",
+                        "answer":"PHP",
                         "correct":false
                     }
                 ]
@@ -56,50 +56,50 @@
             {
                 "id":3,
                 "picture": "",
-                "question":"Jaki jest najlepszy serial?",
+                "question":"Pytanie z dwoma odpowiedziami A i C",
                 "answers":[
                     {
                         "id":1,
                         "name": "checkedA",
-                        "answer":"Breaking Bad",
-                        "correct":false
+                        "answer":"Poprawna",
+                        "correct":true
                     },
                     {
                         "id":2,
                         "name": "checkedB",
-                        "answer":"Gra o tron",
-                        "correct":true
+                        "answer":"Zła",
+                        "correct":false
                     },
                     {
                         "id":3,
                         "name": "checkedC",
-                        "answer":"odpowiedz C",
-                        "correct":false
+                        "answer":"Poprawna",
+                        "correct":true
                     }
                 ]
             },
             {
                 "id":4,
                 "picture": "",
-                "question":"Kto jest najwiekszym koxem?",
+                "question":"Na jaką ocenę jest quiz?",
                 "answers":[
                     {
                         "id":1,
                         "name": "checkedA",
-                        "answer":"Remisko",
+                        "answer":"4",
                         "correct":false
                     },
                     {
                         "id":2,
                         "name": "checkedB",
-                        "answer":"Panek",
-                        "correct":true
+                        "answer":"4.5",
+                        "correct":false
                     },
                     {
                         "id":3,
                         "name": "checkedC",
-                        "answer":"Sierzant",
-                        "correct":false
+                        "answer":"5",
+                        "correct":true
                     }
                 ]
             }
@@ -112,24 +112,24 @@
             {
                 "id":1,
                 "picture": "",
-                "question":"Jaki jest kolor kurtki najmana?",
+                "question":"Pytanie?",
                 "answers":[
                     {
                         "id":1,
                         "name": "checkedA",
-                        "answer":"niebieska",
+                        "answer":"odpa",
                         "correct":true
                     },
                     {
                         "id":2,
                         "name": "checkedB",
-                        "answer":"zielona",
+                        "answer":"odpb",
                         "correct":false
                     },
                     {
                         "id":3,
                         "name": "checkedC",
-                        "answer":"czerwona",
+                        "answer":"odpc",
                         "correct":false
                     }
                 ]
