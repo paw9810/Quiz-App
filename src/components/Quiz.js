@@ -41,7 +41,6 @@ const Quiz = ({ quizData, quizId }) => {
   const classes = useStyles();
   const location = useLocation()
   let { path, url } = useRouteMatch();
-  const requestImageFile = require.context('../resources', true)
   
   const handleChange = (e) => {
     setCheckboxes({ ...checkboxes, [e.target.name]: e.target.checked })
