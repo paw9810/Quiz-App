@@ -25,6 +25,12 @@
                         "name": "checkedC",
                         "answer":"czerwona",
                         "correct":false
+                    },
+                    {
+                        "id":4,
+                        "name": "checkedC",
+                        "answer":"żółta",
+                        "correct":false
                     }
                 ]
             },
