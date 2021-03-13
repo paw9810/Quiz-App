@@ -32,34 +32,40 @@ const Quiz = ({ quizData, quizId }) => {
   const [quiz, setQuiz] = useState(quizData[quizId-1])
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [points, setPoints] = useState(0)
-  const [checkboxes, setCheckboxes] = useState({
-    checkedA: false,
-    checkedB: false,
-    checkedC: false
-  })
+  const [checkboxes, setCheckboxes] = useState(() => {
+    let temp = {}
+    quizData[quizId-1].questions[0].answers.map((answer, index) => (
+      temp[`${index+1}`] = false
+    ))
+    return temp
+  }
+  )
   const [answers, setAnswers] = useState([])
   const classes = useStyles();
   const location = useLocation()
   let { path, url } = useRouteMatch();
-  const requestImageFile = require.context('../resources', true)
   
   const handleChange = (e) => {
-    setCheckboxes({ ...checkboxes, [e.target.name]: e.target.checked })
+    setCheckboxes({...checkboxes, [e.target.name]: e.target.checked})
   }
 
   const isCurrentAnswerCorrect = () => { 
-    if(quiz.questions[currentQuestion].answers[0].correct === checkboxes.checkedA &&
-    quiz.questions[currentQuestion].answers[1].correct === checkboxes.checkedB &&
-    quiz.questions[currentQuestion].answers[2].correct === checkboxes.checkedC) {
-      return true
-    } else return false
+    for (const key in checkboxes) {
+      if(checkboxes[key] !== quiz.questions[currentQuestion].answers[key-1].correct) {
+        return false
+      }
+    }
+    return true
   }
+  
+
   const isExactAnswerCorrect = (question) => { 
-    if(quiz.questions[question].answers[0].correct === answers[question].checkedA &&
-    quiz.questions[question].answers[1].correct === answers[question].checkedB &&
-    quiz.questions[question].answers[2].correct === answers[question].checkedC) {
-      return true
-    } else return false
+    for (const key in checkboxes) {
+      if(answers[question][key] !== quiz.questions[question].answers[key-1].correct ) {
+        return false
+      }
+    }
+    return true
   }
   
   const handleNextQuestion = () => {
@@ -73,18 +79,18 @@ const Quiz = ({ quizData, quizId }) => {
           return checkboxes
         } return answer
       }))
-      setCheckboxes((checkboxes) => ({
-        checkedA: (answers[currentQuestion+1].checkedA),
-        checkedB: (answers[currentQuestion+1].checkedB),
-        checkedC: (answers[currentQuestion+1].checkedC)
-      }))
+      setCheckboxes(
+        answers[currentQuestion+1]
+      )
     } else {
       setAnswers((answers) => [...answers, checkboxes])
-      setCheckboxes((checkboxes) => ({
-        checkedA: false,
-        checkedB: false,
-        checkedC: false
-      }))
+      setCheckboxes(() => {
+        let temp = {}
+        quizData[quizId-1].questions[currentQuestion+1].answers.map((answer, index) => (
+          temp[`${index+1}`] = false
+        ))
+        return temp
+      })
     }
     
   }
@@ -95,11 +101,9 @@ const Quiz = ({ quizData, quizId }) => {
     }
     setCurrentQuestion((currentQuestion) => currentQuestion-1)
     //setAnswers((answers) => answers.filter((answer, index) => index !== answers.length-1))
-    setCheckboxes((checkboxes) => ({
-      checkedA: (answers[currentQuestion-1].checkedA),
-      checkedB: (answers[currentQuestion-1].checkedB),
-      checkedC: (answers[currentQuestion-1].checkedC)
-    }))
+    setCheckboxes(
+      answers[currentQuestion-1]
+    )
 
     if(answers.length < currentQuestion+1) {
       setAnswers((answers) => [...answers, checkboxes])
@@ -142,10 +146,10 @@ const Quiz = ({ quizData, quizId }) => {
           <FormControlLabel
             key={answer.id}
             control={<Checkbox 
-                        checked={checkboxes[answer.name]} 
+                        checked={checkboxes[answer.id]} 
                         color='primary' 
                         onChange={handleChange} 
-                        name={answer.name} />}
+                        name={answer.id} />}
             label={answer.answer}
           />
         ))}
